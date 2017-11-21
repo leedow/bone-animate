@@ -1,0 +1,30 @@
+{
+  "name": "bone-delay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "uglifyjs index.js -o bonedelay.min.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "karma": "./node_modules/karma/bin/karma"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leedow/bone-store.git"
+  },
+  "keywords": [
+    ""
+  ],
+  "author": "leedow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leedow/bone-store/issues"
+  },
+  "homepage": "https://github.com/leedow/bone-store#readme",
+  "devDependencies": {
+    "jasmine-core": "^2.6.4",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0"
+  }
+}

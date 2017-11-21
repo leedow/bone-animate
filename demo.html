@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Bone-delay</title>
+  <script type="text/javascript" src="./index.js"></script>
+  <style media="screen">
+    body {
+      text-align: center;
+    }
+
+    #logo {
+      margin: 40px 0 10px 0;
+    }
+
+    #intro {
+      color: #999;
+      font-size: 14px;
+      font-weight: normal;
+      margin-top: 0px;
+    }
+
+    .box {
+      padding: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="">
+    <h1 id="logo">Bone delay</h1>
+
+  </div>
+  <div id="log">
+
+  </div>
+
+  <div class="box">
+    <button type="button" onclick="start()">Start</button>
+    <button type="button" onclick="stop()">Stop</button>
+  </div>
+
+
+  <script type="text/javascript">
+    var father = new BoneDelay('a')
+    var child1 = new BoneDelay('b')
+    var child2 = new BoneDelay('c')
+    var timer = null
+
+    child1.wait(1000)
+    .then(function(){
+      document.getElementById('log').innerHTML += 'Child1 Delay 1000ms'
+    })
+    .wait(1000)
+    .then(function(){
+      document.getElementById('log').innerHTML += 'Child1 2000ms'
+    })
+
+
+    child2.wait(1000)
+    .then(function(){
+      document.getElementById('log').innerHTML += 'Child2 Delay 1000ms'
+    })
+    .wait(1000)
+    .then(function(){
+      document.getElementById('log').innerHTML += 'Child2 Delay 2000ms'
+    })
+
+    father.then(child1)
+    .wait(2000)
+    .then(child2)
+
+
+    function start(){
+      timer = setInterval(function(){
+        father
+        .start()
+      }, 4000)
+    }
+
+    function stop(){
+      father.stop()
+      clearInterval(timer)
+    }
+  </script>
+</body>
+
+</html>
